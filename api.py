@@ -14,9 +14,9 @@ class InputText(BaseModel):
     text: str
 
 # Load the model and vectorizer
-loaded_model = load('svc_model.joblib')
-loaded_vectorizer = load('vectorizer_X.joblib')
-multilabel_binarizer = load('multilabel_binarizer.joblib')
+loaded_model = load('models/svc_model.joblib')
+loaded_vectorizer = load('models/vectorizer_X.joblib')
+multilabel_binarizer = load('models/multilabel_binarizer.joblib')
 
 classes = multilabel_binarizer.classes_
 
@@ -26,3 +26,9 @@ async def predict(input_text: InputText):
     predictions = loaded_model.predict(x)
     predicted_labels = [classes[i] for i, prediction in enumerate(predictions[0]) if prediction == 1]
     return {"predicted_labels": predicted_labels}
+
+
+@app.post("/")
+async def hello(input_text: InputText):
+    
+    return {"message": "Bonjour, depuis ma première app Azure..."}

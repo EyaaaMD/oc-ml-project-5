@@ -161,10 +161,12 @@ cython_debug/
 
 .DS_Store
 *.csv
-*.joblib
 mlartifacts
 mlruns
 *.npy
 *.key
-capture
+reports
 .idea
+
+lda_vis*.*
+streamlit_app.py

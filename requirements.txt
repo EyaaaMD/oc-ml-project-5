@@ -1,3 +1,29 @@
-fastapi
+# api
+
+uvicorn
+
+# mlops
 mlflow
 
+
+# unit tests
+pytest
+
+# python
+pandas
+matplotlib
+beautifulsoup4
+wordcloud
+nltk
+scikit-learn
+pyLDAvis
+numpy
+tqdm
+joblib
+transformers
+gensim
+
+
+
+
+ 
