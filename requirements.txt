@@ -13,7 +13,7 @@ pytest
 pandas
 matplotlib
 beautifulsoup4
-wordcloud
+# wordcloud
 nltk
 scikit-learn
 pyLDAvis
