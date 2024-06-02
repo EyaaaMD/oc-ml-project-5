@@ -28,7 +28,7 @@ async def predict(input_text: InputText):
     return {"predicted_labels": predicted_labels}
 
 
-@app.post("/")
+@app.get("/")
 async def hello(input_text: InputText):
     
     return {"message": "Bonjour, depuis ma première app Azure..."}
