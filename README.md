@@ -41,6 +41,27 @@ The goal is to ...
 ├── src
 └── streamlit_app.py
 ```
+
+# tests
+We run two tests: one to check the loading of the models, and the other the predictions:
+
+To test: 
+`pytest tests`
+
+# Run the API 
+
+`run: uvicorn api:app --reload --port 5000`
+
+The docs is on: `localhost:5000/docs`
+
+# Run mlflow server
+
+`mlflow server --host 127.0.0.1 --port 8080`
+
+The UI is on: `http://localhost:8080`
+
+
+
 # Git 
 
 ## create a new repository on the command line
@@ -62,21 +83,24 @@ git branch -M main
 git push -u origin main
 ```
 
-# tests
-We run two tests: one to check the loading of the models, and the other the predictions:
+## Solution to large files
 
-To test: 
-`pytest tests`
+### Problem 
 
-# Run the API 
+`git push -u origin main`
 
-`run: uvicorn api:app --reload --port 5000`
+Problem: 
 
-The docs is on: `localhost:5000/docs`
+```
+remote: error: File models/vectorizer_X.joblib is 110.15 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+```
 
-# Run mlflow server
+### Solution
 
-`mlflow server --host 127.0.0.1 --port 8080`
-
-The UI is on: `http://localhost:8080`
-
+```
+brew install git-lfs
+git lfs track "models/vectorizer_X.joblib"\n
+git lfs migrate import --include="models/vectorizer_X.joblib"
+git push -u origin main
+```
